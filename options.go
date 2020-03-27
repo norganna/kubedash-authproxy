@@ -34,7 +34,7 @@ func initViper() {
 		"",
 		"The role ARN to pass to the authenticator")
 
-	viper.SetConfigName("config.yaml")
+	viper.SetConfigName("config")
 	viper.SetConfigType("yaml")
 	viper.AddConfigPath("/etc/kdash/")
 	viper.AddConfigPath("$HOME/.kdash")
@@ -45,6 +45,7 @@ func initViper() {
 		if _, ok := err.(viper.ConfigFileNotFoundError); !ok {
 			log.Fatalf("Fatal error config file\nError: %v\n", err)
 		}
+		log.Println("Config file not found")
 	}
 
 	viper.SetEnvPrefix("KDASH")
