@@ -1,6 +1,6 @@
-# kdash
+# kdash - authenticating kubernetes dashboard proxy.
 
-AWS IAM tokens used to authenticate to Kubernetes have a notoriously short duration and it can be extremely frustrating to use the dashboard.
+AWS IAM tokens used to authenticate to Kubernetes have a notoriously short duration, and it can be extremely frustrating to use the dashboard because of this.
 
 This is because every 15 minutes you need to re-run the `aws-iam-authentication` command to output a token, copy the token, switch to your browser, click logout on the kubernetes dashboard, select the token radio box, select the token input field, paste in your clipboard token, submit, and then re-navigate back to where you were before this whole ordeal began (because you get directed back to the home page after loging in and your namespace is set back to default).
 
@@ -13,6 +13,7 @@ When it has authenticated to the kubernetes dashboard app for you, it automatica
 ## Installing
 
 ```bash
+go get github.com/norganna/kdash
 go install github.com/norganna/kdash
 ```
 
@@ -30,7 +31,10 @@ Now run the kdash proxy, substituting the cluster and role you would normally su
 kdash --cluster clusterName --role arn:aws:iam::12345678:role/roleName
 ```
 
-Open your browser to [http://localhost:8002](http://localhost:8002)
+If you can't find the kdash application, you may not have the $GOPATH/bin folder in your search path, you can copy or
+link the binary to a suitable place in your path.
+
+Once kdash is running, open your browser to [http://localhost:8002](http://localhost:8002)
 
 ## Options
 
