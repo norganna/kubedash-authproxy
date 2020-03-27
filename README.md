@@ -4,7 +4,7 @@ AWS IAM tokens used to authenticate to Kubernetes have a notoriously short durat
 
 This is because every 15 minutes you need to re-run the `aws-iam-authentication` command to output a token, copy the token, switch to your browser, click logout on the kubernetes dashboard, select the token radio box, select the token input field, paste in your clipboard token, submit, and then re-navigate back to where you were before this whole ordeal began (because you get directed back to the home page after loging in and your namespace is set back to default).
 
-This application is a proxy I had to write because this whole process annoyed me so deeply I was not able to do my actual job anymore because of the constant searches on the internet to try and find a solution to this deeply upsetting problem.
+This application is a proxy I had to write because this whole process annoyed me so horribly that I was not able to do my actual job anymore because of the constant searches on the internet to try and find a solution to this deeply upsetting problem.
 
 kdash will start up a server on a local port (8002 by default) and when you visit it, will retrieve and automatically refresh your AWS IAM token before it expires (i.e. every 10 minutes).
 
