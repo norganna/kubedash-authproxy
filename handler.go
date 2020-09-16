@@ -15,6 +15,7 @@ func handleRequest(res http.ResponseWriter, req *http.Request) {
 		Name:       "jweToken",
 		Value:      url.QueryEscape(jweToken),
 	})
+	req.Host = proxyUrl.Host
 
 	proxy.ServeHTTP(res, req)
 }
