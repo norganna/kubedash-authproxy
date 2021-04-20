@@ -36,8 +36,8 @@ func initViper() {
 
 	viper.SetConfigName("config")
 	viper.SetConfigType("yaml")
-	viper.AddConfigPath("/etc/kdash/")
-	viper.AddConfigPath("$HOME/.kdash")
+	viper.AddConfigPath("/etc/kubedash/")
+	viper.AddConfigPath("$HOME/.kubedash")
 	viper.AddConfigPath(".")
 
 	err := viper.ReadInConfig() // Find and read the config file
@@ -48,7 +48,7 @@ func initViper() {
 		log.Println("Config file not found")
 	}
 
-	viper.SetEnvPrefix("KDASH")
+	viper.SetEnvPrefix("KUBEDASH")
 	viper.AutomaticEnv()
 
 	err = viper.BindPFlags(pflag.CommandLine)
@@ -58,5 +58,3 @@ func initViper() {
 
 	pflag.Parse()
 }
-
-
